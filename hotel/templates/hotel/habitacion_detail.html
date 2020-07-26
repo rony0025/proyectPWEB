@@ -1,0 +1,18 @@
+{% block title %}
+    <h1>Detalle de habitacion</h1>
+{% endblock  %}
+{% block body %}
+<h1>{{ object.tipo }}</h1>
+<table>
+    <tr>
+        <th>NUMERO</th>
+        <th>TIEMPO</th>
+        <th>SERVICIOS</th>
+    </tr>
+    <tr>
+        <th>{{ object.numero }}</th>
+        <th>{{ object.dias }}</th>
+        <th>{{ object.servicios }}</th>
+    </tr>
+</table>
+{% endblock %}
