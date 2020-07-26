@@ -27,7 +27,7 @@ class Habitacion(models.Model):
     cliente     = models.ForeignKey('Cliente', on_delete=models.CASCADE)
     
     def get_absolute_url(self):
-        return  "hotel/" + str(self.id)
+        return  str(self.id)
         #return reverse('hotel:habi-detail', kwargs = {'pk':self.id})
     
 class Cliente(models.Model):
