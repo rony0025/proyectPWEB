@@ -25,6 +25,7 @@ class ClienteListView(View):
                 }
         return render(request, 'hotel/lsta_cliente.html', context)
 class HabitacionDetailView(View):
+    
     def get(self, request, myID):
         obj = Habitacion.objects.get(id = myID)
         context = {

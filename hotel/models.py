@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Habitacion(models.Model):
@@ -25,11 +26,9 @@ class Habitacion(models.Model):
 
     cliente     = models.ForeignKey('Cliente', on_delete=models.CASCADE)
     
-    def __str__(self):
-        return self.tipo
-    
     def get_absolute_url(self):
-        return reverse('hotel:habi-detail', kwargs = {'pk': self.id})
+        return  "hotel/" + str(self.id)
+        #return reverse('hotel:habi-detail', kwargs = {'pk':self.id})
     
 class Cliente(models.Model):
     nombres     = models.CharField(max_length=30) # Nombres del cliente
@@ -37,9 +36,6 @@ class Cliente(models.Model):
     tarjeta     = models.PositiveIntegerField()   # Numero de tarjeta
     dni         = models.PositiveIntegerField()   # Numeor de DNI
     
-
-    def __str__(self):
-        return self.nombres
 
     def get_abslute_url(self):
         return "/hotel/cliente/" + str(self.id)
