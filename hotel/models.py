@@ -20,11 +20,11 @@ class Habitacion(models.Model):
         default = SENCILLA,
     ) #  seleccionar el tipo de habitacion.
 
-    dias        = models.PositiveIntegerField() # Numero de dias ocupado
-    servicios   = models.PositiveIntegerField() # Numero de servicios al dia
+    dias        = models.PositiveIntegerField(null = True) # Dias ocupado
+    servicios   = models.PositiveIntegerField(null = True) # Servicios al dia
     numero      = models.PositiveIntegerField() # id de la habitacion
+    estado      = models.BooleanField(default = False) # False = Ocupado
 
-    cliente     = models.ForeignKey('Cliente', on_delete=models.CASCADE)
     
     def get_absolute_url(self):
         return  str(self.id)
@@ -35,7 +35,7 @@ class Cliente(models.Model):
     apellidos   = models.CharField(max_length=30) # Apellidos del cliente
     tarjeta     = models.PositiveIntegerField()   # Numero de tarjeta
     dni         = models.PositiveIntegerField()   # Numeor de DNI
-    
+    habitacion  = models.ForeignKey('Habitacion', on_delete=models.CASCADE)    
 
     def get_abslute_url(self):
         return "/hotel/cliente/" + str(self.id)

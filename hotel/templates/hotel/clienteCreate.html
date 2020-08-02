@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}
-    Agregar Habitacion
+    Agregar Cliente
 {% endblock %}
 {% block body %}
-    <h1>AGREGAR NUEVA HABITACION</h1>
+    <h1>Agregar Cliente</h1>
+
     <form method = 'POST'> {% csrf_token %}
         {{ forms.as_p }}
         <input type = 'submit' value = 'Grabar'/>

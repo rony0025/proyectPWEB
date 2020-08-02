@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from .models import Habitacion, Cliente
 from .forms import RawHabitacionForm
+from .forms import RawClienteForm
 
 
 # Create your views here.
@@ -41,6 +42,22 @@ class ClienteListView(View):
                     'object_list': obj,
                 }
         return render(request, 'hotel/lsta_cliente.html', context)
+
+class ClienteCreateView(View):
+    def get(self, request):
+        form = RawClienteForm()
+        if request.method == 'POST':
+            form = RawClienteForm(request.POST)
+            if form.is_valid():
+                print(form.cleaned_data)
+                Habitacion.objects.create(**form.cleaned_data)
+            else:
+                print(form.errors)
+        context ={
+            'forms': form,
+        }
+        return render(request, 'hotel/clienteCreate.html', context)    
+
 class HabitacionDetailView(View):
     
     def get(self, request, myID):

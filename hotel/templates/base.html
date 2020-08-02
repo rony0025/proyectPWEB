@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <title>
-            <h1>BIENVENIDOS A NUESTRO HOTEL EPIS</h1>
             {% block title %}
             {% endblock %}
         </title>
     </head>
     <body>
+        {% block nav %}
+            <ul>
+                <li><a href = ""> Habitaciones Disponibles</a></li>
+                <li><a href = ""> Registrar Cliente</a></li>
+                <li><a href = ""> Actualizar Habitacion</a></li>
+                <li><a href = ""> Buscar Cliente</a></li>
+            </ul>
+        {% endblock %}
         {% block body %}
         {% endblock %}
         <hr>
