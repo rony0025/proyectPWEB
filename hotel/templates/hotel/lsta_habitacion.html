@@ -6,7 +6,7 @@
 <h1> LISTA DE TODAS LAS HABITACIONES </h1>
 {% for instance in object_list %}
     <p>
-        {{ instance.id }} - 
+        {{ instance.numero }} - 
         <a href = '{{ instance.get_absolute_url }}'>{{ instance.tipo  }}</a>
     </p>
 {% endfor  %}

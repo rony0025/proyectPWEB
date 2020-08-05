@@ -4,7 +4,8 @@ from .views import(
     HabitacionDetailView,
     ClienteListView,
     HabitacionCreateView,
-    ClienteCreateView
+    ClienteCreateView,
+    ClienteSearchView,
     )
 app_name = 'hotel'
 
@@ -14,4 +15,5 @@ urlpatterns = [
     path('cliente/', ClienteListView.as_view(), name = 'cliente-list'),
     path('addHabitacion/', HabitacionCreateView.as_view(), name = 'habi-add'),
     path('addCliente/', ClienteCreateView.as_view(), name = 'clie-add'),
+    path('searchCliente/', ClienteSearchView.as_view(), name = 'clie-search'),
 ]

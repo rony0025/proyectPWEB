@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+    Busqueda de cliente
+{% endblock %}
+{% block body %}
+    <h1>BUSCAR HUESPED </h1>
+    <form method = 'POST'> {% csrf_token %}
+        <input type = 'text' name = 'nombre' placeholder = 'buscar'/>
+        <input type = 'submit' value = 'Buscar'/>
+    </form>
+{% endblock %}
+
