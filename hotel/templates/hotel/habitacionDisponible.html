@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+    Habitaciones Disponibles
+{% endblock %}
+{% block body %}
+    <h1>Lista de todas las habitaciones Disponibles </h1>
+    <ul>
+        {% for  instance in object_list %}
+            <li>{{ instance.id }} - {{ instance.tipo }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

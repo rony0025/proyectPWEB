@@ -20,16 +20,14 @@ class HabitacionListView(View):
 # Vista para crear una nueva habitacion
 class HabitacionCreateView(View):
     def post(self, request):
-        form = RawHabitacionForm()
-        if request.method == 'POST':
-            form = RawHabitacionForm(request.POST)
-            if form.is_valid():
-                print(form.cleaned_data)
-                Habitacion.objects.create(**form.cleaned_data)
+        form = RawHabitacionForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            Habitacion.objects.create(**form.cleaned_data)
 
-                form = RawHabitacionForm() #Limpiar el formulario
-            else:
-                print(form.errors)
+            form = RawHabitacionForm() #Limpiar el formulario
+        else:
+            print(form.errors)
         context = {
             'forms': form,
         }
@@ -41,7 +39,17 @@ class HabitacionCreateView(View):
             'forms': form,
         }
         return render(request, 'hotel/habitacionCreate.html', context)
-        
+
+class HabitacionDisponibleView(View):
+    def get(self, request):
+        obj = Habitacion.objects.filter(estado = False)
+        context = {
+            'object_list': obj,
+        }
+
+        return render(request, 'hotel/habitacionDisponible.html', context)
+
+
 # Visa para listar los clientes
 
 class ClienteListView(View):
@@ -83,12 +91,11 @@ class ClienteSearchView(View):
         return  render(request, 'hotel/clienteSearch.html', context)
 
     def post(self, request, nombre):
-        if request.method == 'POST':
-            obje = Cliente.objects.get(nombres = nombre)
-            context = {
-                    'obj':obje,
-                    }
-            return render(request, 'hotel/clienteSearch.html', context)
+        obje = Cliente.objects.get(nombres = nombre)
+        context = {
+                'obj':obje,
+            }
+        return render(request, 'hotel/clienteSearch.html', context)
 
 class HabitacionDetailView(View):
 
