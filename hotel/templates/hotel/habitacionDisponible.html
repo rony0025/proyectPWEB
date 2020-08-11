@@ -4,9 +4,11 @@
 {% endblock %}
 {% block body %}
     <h1>Lista de todas las habitaciones Disponibles </h1>
+    <br>
     <ul>
         {% for  instance in object_list %}
-            <li>{{ instance.id }} - {{ instance.tipo }}</li>
+            <li>Disponibles --> {{ instance.tipo }} --> {{ instance.id }}</li>
+            <br>
         {% endfor %}
     </ul>
 {% endblock %}

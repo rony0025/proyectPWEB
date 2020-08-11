@@ -4,9 +4,10 @@
 {% endblock %}
 {% block body %}
     <h1>Agregar Cliente</h1>
-
+    <br>
     <form method = 'POST'> {% csrf_token %}
         {{ forms.as_p }}
+        <br>
         <input type = 'submit' value = 'Grabar'/>
     </form>
 {% endblock %}

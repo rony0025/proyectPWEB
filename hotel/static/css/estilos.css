@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+h1{
+    font-style:courier;
+}
+body{
+    background: url("images/ladrillos.jpg");
+}
+header, .main, footer{
+    width: 98%;
+    max-width: 1350px;
+    margin: 3px;
+}
+header nav{
+    background: wheat;
+    overflow: hidden;
+    border:rgb(153, 73, 7) 10px solid;
+}
+header nav ul{
+    list-style-type: none;
+}
+header nav ul li{
+    float: left;
+}
+header nav ul li a{
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    color:#61210B;
+    margin: 20px;
+    border:rgb(153, 73, 7) 10px solid;
+
+}
+header nav ul li a :hover{
+    background-color:#434343;
+}
+.main .articles{
+    width: 50%;
+    float: left;
+    margin: 1%;
+}
+.main .articles article{
+    color:#61210B;
+    padding: 50px;
+    background: wheat;
+    margin-bottom: 20px;
+    border:rgb(153, 73, 7) 10px solid;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    color: #61210B;;
+    background: wheat;
+    clear: both;
+    padding: 2px;
+    border:rgb(153, 73, 7) 10px solid;
+}
+div .img{
+    float: rigth;
+    width:50px; 
+	height:50px; 
+	border:1px solid black;
+	background-image:url(images/HotelMenu.jpg);}
+}
+
+
+
+

@@ -1,29 +1,45 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
-        
         <title>
             {% block title %}
             {% endblock %}
         </title>
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     </head>
     <body>
-        {% block nav %}
-            <ul>
+        <header>
+			<div >
+				<nav>
+                    {% block nav %}
+                        <ul>
+                            <li><a href = "{% url 'hotel:habitacion-list' %}"> Habitaciones</a></li>
+                            <li><a href = "{% url 'hotel:cliente-list' %}"> Clientes</a></li>
+                            <li><a href = "{% url 'hotel:clie-adding' %}"> Registrar Cliente</a></li>
+                            <li><a href = "{% url 'hotel:habi-dispo' %}">Habitaciones Disponibles</a></li>
+                            <li><a href = "{% url 'hotel:clie-search' %}"> Buscar Cliente</a></li>
+                        </ul>
+                    {% endblock %}
+                </nav>
+            </div>
+        </header>
+        <section class="main">
+			<section class="articles">
+				<article>
+                    {% block body %}
+                    {% endblock %}
+                </article>
+            </section>
+            <div class="img">
                 
-                <li><a href = "{% url 'hotel:habitacion-list' %}"> Habitaciones</a></li>
-                <li><a href = "{% url 'hotel:clie-adding' %}"> Registrar Cliente</a></li>
-                <li><a href = "{% url 'hotel:habi-dispo' %}">Habitaciones Disponibles</a></li>
-                <li><a href = "{% url 'hotel:clie-search' %}"> Buscar Cliente</a></li>
-            </ul>
-        {% endblock %}
-        {% block body %}
-        {% endblock %}
+            </div>
+        </section>
         {% block footer %}
             <hr>
-            <div>
+            <footer>
                 <h3> DERECHOS DE COPYRIGHT</h3>
-            </div>
+            </footer>
         {% endblock %}
     </body>
 </html>

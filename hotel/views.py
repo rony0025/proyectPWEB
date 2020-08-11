@@ -105,3 +105,5 @@ class HabitacionDetailView(View):
                 'object': obj,
                 }
         return render(request, 'hotel/habitacion_detail.html', context)
+
+

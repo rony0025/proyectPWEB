@@ -4,10 +4,12 @@
 {% endblock %}
 {% block body %}
 <h1> LISTA DE TODAS LAS HABITACIONES </h1>
+<br>
 {% for instance in object_list %}
     <p>
-        {{ instance.numero }} - 
         <a href = '{{ instance.get_absolute_url }}'>{{ instance.tipo  }}</a>
+        <p> <--Cantidad--> </p> {{ instance.numero }}
     </p>
+    <br>
 {% endfor  %}
 {% endblock %}
