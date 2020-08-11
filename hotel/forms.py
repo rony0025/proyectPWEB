@@ -28,5 +28,5 @@ class RawClienteForm(forms.Form):
     apellidos   = forms.CharField()
     tarjeta     = forms.IntegerField()
     dni         = forms.IntegerField()
-    habitacion  = forms.ModelChoiceField(queryset = Habitacion.objects.all())
+    habitacion  = forms.ModelChoiceField(queryset = Habitacion.objects.filter(estado = False))
 

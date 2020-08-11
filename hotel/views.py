@@ -68,7 +68,6 @@ class ClienteCreateView(View):
         if form.is_valid():
             print(form.cleaned_data)
             Cliente.objects.create(**form.cleaned_data)
-
             form = RawClienteForm() # Limpia el formulario
         else :
             print(form.errors)
