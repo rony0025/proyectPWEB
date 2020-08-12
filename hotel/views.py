@@ -74,13 +74,31 @@ class ClienteCreateView(View):
     def post(self, request):
         form = RawClienteForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data)
-            a = Cliente.objects.create(**form.cleaned_data)
-            #------------------------------------------
-            
-            b = a.habitacion
-            b.update(estado = False)
+            #print(form.cleaned_data)
+            # cleaned_data retorna un diccionario con 
+            # los elementos enviados por el formulario
+            dic = form.cleaned_data
+            # creamos un objeto cliente
+            cliente = Cliente()
+            cliente.nombres     = dic["nombres"]
+            cliente.apellidos   = dic["apellidos"]
+            cliente.tarjeta     = dic["tarjeta"]
+            cliente.dni         = dic["dni"]
+            # -------------------------------------------
+            habitacion          = dic["habitacion"]
+            dias                = dic["dias"]
+            servicios           = dic["servicios"]
+            # modificamos el estado de la habitacion a ocupado
+            habitacion.estado   = True
+            habitacion.dias     = dias
+            habitacion.servicios = servicios
+            #--------------------------------------------
+            habitacion.save()
+            cliente.habitacion  = habitacion
         
+            cliente.save()
+            #Cliente.objects.create(**form.cleaned_data)
+            #----------------------------------------
             form = RawClienteForm() # Limpia el formulario
 
         else :

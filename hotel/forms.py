@@ -29,4 +29,6 @@ class RawClienteForm(forms.Form):
     tarjeta     = forms.IntegerField()
     dni         = forms.IntegerField()
     habitacion  = forms.ModelChoiceField(queryset = Habitacion.objects.filter(estado = False))
+    dias        = forms.IntegerField()
+    servicios   = forms.IntegerField()
 

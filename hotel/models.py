@@ -29,7 +29,12 @@ class Habitacion(models.Model):
     def get_absolute_url(self):
         return  str(self.id)
         #return reverse('hotel:habi-detail', kwargs = {'pk':self.id})
-    
+        
+   # def update(self, estado):
+       # self.dias = dias
+       # self.servicios = servicios
+    #    self.estado = estado
+   
 class Cliente(models.Model):
     nombres     = models.CharField(max_length=30) # Nombres del cliente
     apellidos   = models.CharField(max_length=30) # Apellidos del cliente
