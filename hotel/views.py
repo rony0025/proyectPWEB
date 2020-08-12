@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
 from .models import Habitacion, Cliente
@@ -105,4 +106,13 @@ class HabitacionDetailView(View):
                 }
         return render(request, 'hotel/habitacion_detail.html', context)
 
+#Vistas JSON 
+class habitacionJsonView(View):
+    def get(self, request, *args, **kwargs):
+        queryset = Habitacion.objects.filter(estado=False)
+        return JsonResponse(list(queryset.values()), safe= False)
 
+class clienteJsonView(View):
+    def get(self, request, *args, **kwargs):
+        queryset = Cliente.objects.filter()
+        return JsonResponse(list(queryset.values()), safe=False)

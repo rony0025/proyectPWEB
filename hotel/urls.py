@@ -7,6 +7,8 @@ from .views import(
     ClienteCreateView,
     ClienteSearchView,
     HabitacionDisponibleView,
+    habitacionJsonView,
+    clienteJsonView,
     )
 app_name = 'hotel'
 
@@ -20,5 +22,11 @@ urlpatterns = [
     path('', HabitacionListView.as_view(), name = 'habitacion-list'),
     path('addCliente/', ClienteCreateView.as_view(), name = 'clie-adding'),
     path('searchCliente/', ClienteSearchView.as_view(), name = 'clie-search'),
+
     path('habDisponible/', HabitacionDisponibleView.as_view(), name = 'habi-dispo'),
+    
+    #Urls de json
+    path('habiJSON/', habitacionJsonView.as_view(), name = 'habi-JSON'),
+    path('searchCliente/cliJSON/', clienteJsonView.as_view(), name = 'cli-JSON'),
 ]
+
