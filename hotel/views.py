@@ -74,7 +74,7 @@ class ClienteCreateView(View):
     def post(self, request):
         form = RawClienteForm(request.POST)
         if form.is_valid():
-            #print(form.cleaned_data)
+            print(form.cleaned_data)
             # cleaned_data retorna un diccionario con 
             # los elementos enviados por el formulario
             dic = form.cleaned_data
