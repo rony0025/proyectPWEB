@@ -46,7 +46,7 @@ class HabitacionUpdateView(View):
     fields = [
         'dias',
         'servicios',
-        'estado'
+        'estado',
         ]
 
 class HabitacionDisponibleView(View):

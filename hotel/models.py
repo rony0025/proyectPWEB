@@ -23,14 +23,10 @@ class Habitacion(models.Model):
     dias        = models.PositiveIntegerField(null = True) # Dias ocupado
     servicios   = models.PositiveIntegerField(null = True) # Servicios al dia
     numero      = models.PositiveIntegerField() # id de la habitacion
-    estado      = models.BooleanField(default = False) # False = Ocupado
-<<<<<<< HEAD
-    descripcion = models.CharField()
-=======
-    mantenimineto = models.BooleanField(default = False)
->>>>>>> 14b2f208239cfc506c9146185ed64b50a4ea4568
+    estado      = models.BooleanField(default = False) # False = Ocupadoimineto = models.BooleanField(default = False)
+    mantenimiento = models.BooleanField(default = False) 
+    descripcion = models.CharField(max_length = 100)
 
-    
     def get_absolute_url(self):
         return  str(self.id)
         #return reverse('hotel:habi-detail', kwargs = {'pk':self.id})
