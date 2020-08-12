@@ -24,6 +24,7 @@ class Habitacion(models.Model):
     servicios   = models.PositiveIntegerField(null = True) # Servicios al dia
     numero      = models.PositiveIntegerField() # id de la habitacion
     estado      = models.BooleanField(default = False) # False = Ocupado
+    descripcion = models.CharField()
 
     
     def get_absolute_url(self):

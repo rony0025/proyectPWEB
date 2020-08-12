@@ -37,11 +37,23 @@ header nav ul li a :hover{
     background-color:#434343;
 }
 .main .articles{
-    width: 50%;
+    width: 45%;
     float: left;
     margin: 1%;
 }
 .main .articles article{
+    color:#61210B;
+    padding: 50px;
+    background: wheat;
+    margin-bottom: 20px;
+    border:rgb(153, 73, 7) 10px solid;
+}
+.main .descrip{
+    width: 45%;
+    float: right;
+    margin: 1%;
+}
+.main .descrip article{
     color:#61210B;
     padding: 50px;
     background: wheat;

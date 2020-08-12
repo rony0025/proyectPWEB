@@ -22,6 +22,16 @@ class RawHabitacionForm(forms.Form):
     servicios   = forms.IntegerField() # Numero de servicios al dia
     numero      = forms.IntegerField() # id de la habitacion
     estado      = forms.BooleanField(initial = False, required = False)# Estado de la habitacion
+    descripcion = forms.CharField(
+        widget = forms.Textarea(
+            attrs={
+                'placeholder': 'Escribe una descripcion sobre la habitacion',
+                'id': 'nombreID',
+                'class': 'special',
+                'cols': '10',
+            }
+        )
+    )
 
 class RawClienteForm(forms.Form):
     nombres     = forms.CharField()

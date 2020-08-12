@@ -3,23 +3,26 @@
     Detalle de habitacion
 {% endblock  %}
 {% block body %}
-<h1>Habitacion tipo --> {{ object.tipo }}</h1>
+<h1>--> {{ object }}</h1>
 <br>
-<table>
-    <tr>
-        <th>NUMERO</th>
-        <th>------</th>
-        <th>TIEMPO</th>
-        <th>------</th>
-        <th>SERVICIOS</th>
-    </tr>
-    <tr></tr>
-    <tr>
-        <th>{{ object.numero }}</th>
-        <th>------</th>
-        <th>{{ object.dias }}</th>
-        <th>------</th>
-        <th>{{ object.servicios }}</th>
-    </tr>
-</table>
+<p>
+    Numero de habitacion --->
+    {{ object.numero }}
+</p>
+<br>
+<p>
+    Tipo de habitacion --->
+    {{ object.tipo }}
+</p>
+<br>
+{% endblock %}
+{% block descrip %}
+<section class="descrip">
+    <article>
+        <p>
+            Descripción:
+        </p>
+        
+    </article>
+</section>
 {% endblock %}
