@@ -15,7 +15,7 @@ class Habitacion(models.Model):
     ]
 
     tipo = models.CharField(
-        max_length = 10,
+        max_length = 15,
         choices = TIPO_DE_HABITACION,
         default = SENCILLA,
     ) #  seleccionar el tipo de habitacion.

@@ -20,7 +20,7 @@ class HabitacionListView(View):
 # Vista para crear una nueva habitacion
 class HabitacionCreateView(View):
     def post(self, request):
-        form = RawHabitacionForm(request.POST)
+        form = RawHabitacionForm()
         if form.is_valid():
             print(form.cleaned_data)
             Habitacion.objects.create(**form.cleaned_data)
@@ -39,6 +39,14 @@ class HabitacionCreateView(View):
             'forms': form,
         }
         return render(request, 'hotel/habitacionCreate.html', context)
+
+class HabitacionUpdateView(View):
+    model = Habitacion
+    fields = [
+        'dias',
+        'servicios',
+        'estado'
+        ]
 
 class HabitacionDisponibleView(View):
     def get(self, request):
@@ -67,8 +75,14 @@ class ClienteCreateView(View):
         form = RawClienteForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
-            Cliente.objects.create(**form.cleaned_data)
+            a = Cliente.objects.create(**form.cleaned_data)
+            #------------------------------------------
+            
+            b = a.habitacion
+            b.update(estado = False)
+        
             form = RawClienteForm() # Limpia el formulario
+
         else :
             print(form.errors)
         context = {
