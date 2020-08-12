@@ -22,6 +22,7 @@ class RawHabitacionForm(forms.Form):
     servicios   = forms.IntegerField() # Numero de servicios al dia
     numero      = forms.IntegerField() # id de la habitacion
     estado      = forms.BooleanField(initial = False, required = False)# Estado de la habitacion
+    mantenimiento = forms.BooleanField(initial = False, required = False) 
 
 class RawClienteForm(forms.Form):
     nombres     = forms.CharField()

@@ -8,7 +8,7 @@ from .forms import RawClienteForm
 
 # Create your views here.
 
-# Vista para listar todas las habitaciones. 
+# Vista para listar todas las habitaciones.
 class HabitacionListView(View):
     def get(self, request):
         obj = Habitacion.objects.all()
@@ -120,14 +120,8 @@ class ClienteSearchView(View):
 
     def get(self, request):
         context = {}
-        return  render(request, 'hotel/clienteSearch.html', context)
-
-    def post(self, request, nombre):
-        obje = Cliente.objects.get(nombres = nombre)
-        context = {
-                'obj':obje,
-            }
         return render(request, 'hotel/clienteSearch.html', context)
+        
 
 class HabitacionDetailView(View):
 
