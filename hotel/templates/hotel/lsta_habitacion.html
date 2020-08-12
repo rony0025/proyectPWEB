@@ -7,8 +7,8 @@
 <br>
 {% for instance in object_list %}
     <p>
+        {{ instance.id }}-{{ instance }}--->
         <a href = '{{ instance.get_absolute_url }}'>{{ instance.tipo  }}</a>
-        <p> <--Cantidad--> </p> {{ instance.numero }}
     </p>
     <br>
 {% endfor  %}
