@@ -8,6 +8,10 @@
     <form action = '.' method = 'POST'> {% csrf_token %}
         <h1>Quiere borrar a esta persona: </h1>
         <h2>{{object.nombres}}</h2>
+        <p>
+            El monto a pagar sera de 10000 s/
+        </p>
+        <h3>¿Realmente lo cancelara?</h3>
         <input type = 'submit' value = 'SI'/>
         <a href="../">Cancelar</a>
     </form>
