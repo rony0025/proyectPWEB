@@ -43,7 +43,7 @@ class Cliente(models.Model):
     dni         = models.PositiveIntegerField()   # Numeor de DNI
     habitacion  = models.ForeignKey('Habitacion', on_delete=models.CASCADE)    
 
-    def get_abslute_url(self):
-        return "/cliente/" + str(self.id) + "/"
+    def get_absolute_url(self):
+        return str(self.id)
         #return reverse('hotel:habi-detail', kwargs = {'pk':self.id})
 

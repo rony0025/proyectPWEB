@@ -27,7 +27,7 @@ urlpatterns = [
     path('addCliente/', ClienteCreateView.as_view(), name = 'clie-adding'),
     path('searchCliente/', ClienteSearchView.as_view(), name = 'clie-search'),
     path('habDisponible/', HabitacionDisponibleView.as_view(), name = 'habi-dispo'),
-    path('cliente/<int:myID>/delete', ClienteDeleteView.as_view(), name = 'clie-delete'),
+    path('cliente/<int:myID>/delete/', ClienteDeleteView.as_view(), name = 'clie-delete'),
     path('update/<int:myID>/', HabitacionUpdateView.as_view(), name = 'clie-update'),
     
     #Urls de json
