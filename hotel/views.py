@@ -133,14 +133,21 @@ class ClienteDetailView(View):
 
 class ClienteDeleteView(View):
 
+    def post(self, request, myID):
+        obj = Cliente.objects.get(id = myID)
+        print("lo borro")
+        habitacion = obj.habitacion
+        habitacion.dias = 0
+        habitacion.servicios = 0
+        habitacion.estado = False
+        habitacion.save()
+        obj.delete()
+        return redirect('cliente/')
+
     def get(self, request, myID):
-        object = get_object_or_404(Cliente, id = myID)
-        if request.method == 'POST':
-            print("lo borro")
-            object.delete()
-            return redirect('../')
+        obj = Cliente.objects.get(id = myID)
         context = {
-            'objeto': object,
+            'object': obj,
         }
         return render(request, 'hotel/clienteDelete.html', context)
 
