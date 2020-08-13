@@ -42,8 +42,8 @@ class HabitacionCreateView(View):
         }
         return render(request, 'hotel/habitacionCreate.html', context)
 
-class HabitacionUpdateView(UpdateView):
-    def get(self, request, myID):
+class HabitacionUpdateView(View):
+    def post(self, request, myID):
         habitacion = Habitacion.objects.get(id = myID)
         form = RawHabitacionForm(instance = habitacion)
         if request.method == 'POST':
@@ -64,7 +64,6 @@ class HabitacionDisponibleView(View):
         }
 
         return render(request, 'hotel/habitacionDisponible.html', context)
-
 
 # Visa para listar los clientes
 
@@ -133,7 +132,7 @@ class ClienteDetailView(View):
 
 class ClienteDeleteView(View):
 
-    def get(self, request, myID):
+    def post(self, request, myID):
         object = get_object_or_404(Cliente, id = myID)
         if request.method == 'POST':
             print("lo borro")
