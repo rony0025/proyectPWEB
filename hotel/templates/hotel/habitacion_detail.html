@@ -18,7 +18,9 @@
 <p>
     Estado de la habitacion --->
     {% if object.estado %}
-    Esta ocupado
+        Esta ocupado
+    {% else %}
+        Esta desocupado
     {% endif %}
 </p>
 <br>

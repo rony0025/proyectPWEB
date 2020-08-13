@@ -45,5 +45,5 @@ class Cliente(models.Model):
 
     def get_absolute_url(self):
         return str(self.id)
-        #return reverse('hotel:habi-detail', kwargs = {'pk':self.id})
+        #return reverse('hotel:clie-detail', kwargs = {'pk':self.id})
 

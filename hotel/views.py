@@ -45,12 +45,23 @@ class HabitacionCreateView(View):
 class HabitacionUpdateView(View):
     def post(self, request, myID):
         habitacion = Habitacion.objects.get(id = myID)
-        form = RawHabitacionForm(instance = habitacion)
-        if request.method == 'POST':
-            form = RawHabitacionForm(request.POST, instance = habitacion)
-            if form.is_valid():
-                form.save()
-                return redirect('/')
+        form = RawHabitacionForm(request.POST)
+        if form.is_valid():
+            dic = form.cleaned_data
+            habitacion.tipo = dic["tipo"]
+            habitacion.dias = dic["dias"]
+            habitacion.servicios = dic["servicios"]
+            habitacion.estado = dic["estado"]
+            habitacion.mantenimiento = dic["mantenimiento"]
+            habitacion.descripcion = dic["descripcion"]
+            habitacion.save()
+            return redirect('../')
+        else:
+            print("Errores")
+
+    def get(self, request, myID):
+        habitacion = Habitacion.objects.get(id = myID)
+        form = RawHabitacionForm() # instance = habitacion
         context = {
             'forms': form,
         }
@@ -133,13 +144,6 @@ class ClienteDetailView(View):
 class ClienteDeleteView(View):
 
     def post(self, request, myID):
-<<<<<<< HEAD
-        object = get_object_or_404(Cliente, id = myID)
-        if request.method == 'POST':
-            print("lo borro")
-            object.delete()
-            return redirect('../')
-=======
         obj = Cliente.objects.get(id = myID)
         print("lo borro")
         habitacion = obj.habitacion
@@ -148,11 +152,10 @@ class ClienteDeleteView(View):
         habitacion.estado = False
         habitacion.save()
         obj.delete()
-        return redirect('cliente/')
+        return redirect('../../')
 
     def get(self, request, myID):
         obj = Cliente.objects.get(id = myID)
->>>>>>> 6a7b6aba2f1a614109db24cdab983cbe39609892
         context = {
             'object': obj,
         }
