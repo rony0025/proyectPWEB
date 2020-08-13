@@ -44,5 +44,6 @@ class Cliente(models.Model):
     habitacion  = models.ForeignKey('Habitacion', on_delete=models.CASCADE)    
 
     def get_abslute_url(self):
-        return "/hotel/cliente/" + str(self.id)
+        return "/cliente/" + str(self.id) + "/"
+        #return reverse('hotel:habi-detail', kwargs = {'pk':self.id})
 

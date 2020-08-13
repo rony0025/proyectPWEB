@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+    Detalle del cliente {{ object.nombres }}
+{% endblock  %}
+{% block body %}
+<h1>Detalles</h1>
+<br>
+<p>
+    Nombres --->
+    {{ object.nombres }}
+</p>
+<br>
+<p>
+    Apellidos --->
+    {{ object.apellidos }}
+</p>
+<br>
+<p>
+    N° de tarjeta --->
+    {{ object.tarjeta }} 
+</p>
+<br>
+<p>
+    N° de DNI --->
+    {{ object.dni }} 
+</p>
+<br>
+<p>
+    N° de habitacion --->
+    {{ object.habitacion }} 
+</p>
+<br>
+{% endblock %}

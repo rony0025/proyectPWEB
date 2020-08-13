@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    Eliminar cliente
+{% endblock %}
+{% block body %}
+    <h1>ELIMINAR CLIENTE</h1>
+    <br>
+    <form action = '.' method = 'POST'> {% csrf_token %}
+        <h1>Quiere borrar a esta persona: </h1>
+        <h2>{{object.nombres}}</h2>
+        <input type = 'submit' value = 'SI'/>
+        <a href="../">Cancelar</a>
+    </form>
+{% endblock %}

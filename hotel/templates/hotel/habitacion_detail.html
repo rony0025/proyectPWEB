@@ -15,6 +15,13 @@
     {{ object.tipo }}
 </p>
 <br>
+<p>
+    Estado de la habitacion --->
+    {% if object.estado %}
+    Esta ocupado
+    {% endif %}
+</p>
+<br>
 {% endblock %}
 {% block descrip %}
 <section class="descrip">

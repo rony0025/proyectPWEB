@@ -1,9 +1,10 @@
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Habitacion, Cliente
 from .forms import RawHabitacionForm
 from .forms import RawClienteForm
+from django.views.generic.edit import UpdateView
 
 
 # Create your views here.
@@ -41,13 +42,19 @@ class HabitacionCreateView(View):
         }
         return render(request, 'hotel/habitacionCreate.html', context)
 
-class HabitacionUpdateView(View):
-    model = Habitacion
-    fields = [
-        'dias',
-        'servicios',
-        'estado',
-        ]
+class HabitacionUpdateView(UpdateView):
+    def get(self, request, myID):
+        habitacion = Habitacion.objects.get(id = myID)
+        form = RawHabitacionForm(instance = habitacion)
+        if request.method == 'POST':
+            form = RawHabitacionForm(request.POST, instance = habitacion)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+        context = {
+            'forms': form,
+        }
+        return render(request, 'hotel/habitacionCreate.html', context)
 
 class HabitacionDisponibleView(View):
     def get(self, request):
@@ -64,10 +71,9 @@ class HabitacionDisponibleView(View):
 class ClienteListView(View):
     def get(self, request):
         obj = Cliente.objects.all()
-
         context = {
-                    'object_list': obj,
-                }
+                'object_list': obj,
+            }
         return render(request, 'hotel/lsta_cliente.html', context)
 
 class ClienteCreateView(View):
@@ -115,6 +121,28 @@ class ClienteCreateView(View):
                 'forms': form,
                 }
         return render(request, 'hotel/clienteCreate.html', context)
+
+class ClienteDetailView(View):
+
+    def get(self, request, myID):
+        obj = Cliente.objects.get(id = myID)
+        context = {
+                'object': obj,
+                }
+        return render(request, 'hotel/clienteDetail.html', context)
+
+class ClienteDeleteView(View):
+
+    def get(self, request, myID):
+        object = get_object_or_404(Cliente, id = myID)
+        if request.method == 'POST':
+            print("lo borro")
+            object.delete()
+            return redirect('../')
+        context = {
+            'objeto': object,
+        }
+        return render(request, 'hotel/clienteDelete.html', context)
 
 class ClienteSearchView(View):
 
